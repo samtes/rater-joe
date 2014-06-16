@@ -11,6 +11,7 @@ gem 'html2haml'
 gem "haml-rails"
 gem 'simple_form'
 gem 'zurb-foundation'
+gem 'pg'
 
 
 gem 'jquery-rails'
