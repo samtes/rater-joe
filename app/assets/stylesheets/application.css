@@ -13,3 +13,100 @@
  *= require_tree .
  *= require_self
  */
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+
+/*body {
+	background: url('http://freedwallpaper.com/wp-content/uploads/2014/03/6-autumn-nature-sandbox-images_2053316.jpg');
+	background-size: cover;
+}*/
+
+body .container {
+	text-align: center;
+}
+
+body .clear {
+	text-align: center;
+}
+
+body footer {
+	text-align: center;
+}
+
+body nav {
+	text-align: center;
+}
+
+.container input{
+	width: 25%;
+}
+nav a {
+	width: 100%;
+	margin-right: 20px;
+	color: #ff5e00;
+}
+
+footer a {
+	width: 100%;
+	margin: auto 70px;
+	color: #ff5e00;
+}
+.container label {
+	display: none;
+}
+h1, h2 {
+ 	color: #ff5e00;
+}
+
+.main_text {
+	color: grey;
+	font-size: 20px;
+	padding: 20px 10%;
+	font-family: 'Maven Pro', sans-serif;
+	margin: auto;
+}
+.logo img{
+	width: 10%;
+}
+
+.main_logo img {
+	position: relative;
+	top: -20px;
+	left: -80px;
+	width: 25%;
+	margin-bottom: 0px;
+}
+
+.devise_navigation {
+	text-align: right;
+}
+
+.clear_top {
+	border: 1px solid #ff5e00;
+	overflow: auto;
+	width: 100%
+}
+
+.clear_bottom {
+	margin-top: 30px;
+	border: 1px solid #ff5e00;
+	overflow: auto;
+	width: 100%
+}
+
+li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+.error, .alert {
+	text-align: center;
+	margin-top: 30px;
+	color: #ff5e00;
+	border-radius: 5px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.notice {
+	color: #ff5e00;
+}
