@@ -10,17 +10,18 @@ feature "User signs up" do
     fill_in "Password confirmation", with: "mypassword"
     # PR 1: Captchas
     click_button "Sign up"
-    page.should have_content "Welcome to Squmblr!"
-    page.should_not have_link("I'm Ready!")
+    page.should have_content "Welcome! You have signed up successfully."
+    page.should_not have_link("Sign up")
+    page.should_not have_link("Sign in")
 
     click_link "Sign out"
     click_link "Sign in"
     fill_in "Email", with: "joe@example.com"
     fill_in "Password", with: "mypassword"
     click_button "Sign in"
-    page.should have_content "You have signed in successfully"
+    page.should have_content "Signed in successfully."
   end
-=begin
+
   scenario "signing in with username, rather than email" do
     Fabricate(:user, username: "joe")
     visit '/'
@@ -28,8 +29,9 @@ feature "User signs up" do
     fill_in 'Email/Username', with: 'joe'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    page.should have_content('You have signed in successfully')
-    page.should_not have_link("I'm Ready")
+    page.should have_content('Signed in successfully.')
+    page.should_not have_link("Sign up")
+    page.should_not have_link('Sign in')
   end
 
   scenario "failed login" do
@@ -39,27 +41,29 @@ feature "User signs up" do
     fill_in 'Email/Username', with: 'joeieieie'
     fill_in 'Password', with: 'password'
     click_button 'Sign in'
-    page.should have_content('Invalid login or password')
+    page.should have_content('Invalid login or password.')
   end
 
   scenario "failed signup" do
     Fabricate(:user, email: "joe@example.com", username: "joe")
     visit '/'
-    click_link "I'm Ready!"
+    click_link "Sign up"
     fill_in "Email", with: "joe@example.com"
     fill_in "Username", with: "joe"
     fill_in "Password", with: "mypassword"
     fill_in "Password confirmation", with: "notthesame"
     # PR 1: Captchas
     click_button "Sign up"
-    page.should_not have_content "Welcome to Squmblr"
-    page.should have_content "Your account could not be created."
 
+    page.should_not have_content "Welcome! You have signed up successfully."
+    page.should have_content "Your account could not be created."
+    
     page.should have_error("has already been taken", on: "Email")
-    page.should have_error("doesn't match Password", on: "Password confirmation")
     page.should have_error("has already been taken", on: "Username")
+    page.should have_error("doesn't match Password", on: "Password confirmation")
   end
 
+=begin
   scenario "failed signup because invalid characters in username" do
     visit '/'
     click_link "I'm Ready!"
