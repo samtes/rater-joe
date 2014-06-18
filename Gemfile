@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'devise'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'html2haml'
 gem "haml-rails"
@@ -28,6 +27,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'sqlite3'
   gem "erb2haml"
   gem 'spring'
   gem 'email_spec'
