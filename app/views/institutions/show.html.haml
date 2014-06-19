@@ -1,0 +1,21 @@
+.container
+  %p#notice= notice
+  %p
+    %strong Name:
+    = @institution.name
+  %p
+    %strong Type:
+    = @institution.type
+  %p
+    %strong Length:
+    = @institution.length
+  %p
+    %strong Role:
+    = @institution.role
+  %p
+    %strong Website:
+    = @institution.website
+  - if user_signed_in?  
+    = link_to 'Edit', edit_institution_path(@institution)
+    |
+  \#{link_to 'Back', institutions_path}

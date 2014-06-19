@@ -1,0 +1,16 @@
+= simple_form_for(@institution) do |f|
+  - if @institution.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@institution.errors.count, "error")
+        prohibited this institution from being saved:
+      %ul
+        - @institution.errors.full_messages.each do |message|
+          %li= message
+  %fielset
+    = f.input :name, placeholder: 'Name', required: false, autofocus: true 
+    = f.input :type, placeholder: 'Type of institute'
+    = f.input :length, placeholder: 'Legnth in months'
+    = f.input :role, placeholder: 'Review as student or instructor'
+    = f.input :website, placeholder: 'website'
+    = f.button :submit, 'Create Review' 

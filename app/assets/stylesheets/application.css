@@ -36,6 +36,10 @@ body nav {
 	text-align: center;
 }
 
+.container table {
+	margin: auto;
+}
+
 .container input{
 	width: 25%;
 }

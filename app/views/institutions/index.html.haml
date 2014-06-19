@@ -1,0 +1,25 @@
+.container
+  %h1 Listing institutions
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Type
+        %th Length
+        %th Role
+        %th Website
+        %th{:colspan => "3"}
+    %tbody
+      - @institutions.each do |institution|
+        %tr
+          %td= institution.name
+          %td= institution.type
+          %td= institution.length
+          %td= institution.role
+          %td= institution.website
+          %td= link_to 'Show', institution
+          - if user_signed_in?
+            %td= link_to 'Edit', edit_institution_path(institution)
+            %td= link_to 'Destroy', institution, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Institution', new_institution_path
