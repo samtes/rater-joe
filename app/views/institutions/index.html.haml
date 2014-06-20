@@ -16,7 +16,7 @@
           %td= institution.type
           %td= institution.length
           %td= institution.role
-          %td= link_to institution.website, "/#{institution.website}"
+          %td= link_to institution.website, institution.website
           %td= link_to 'Show', institution
           - if user_signed_in? && current_user.id == institution.user_id 
             %td= link_to 'Edit', edit_institution_path(institution)
@@ -24,3 +24,5 @@
   %br/
   - if user_signed_in? 
     = link_to 'New Institution', new_institution_path
+
+

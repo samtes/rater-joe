@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618231401) do
+ActiveRecord::Schema.define(version: 20140620012633) do
 
   create_table "institutions", force: true do |t|
     t.string   "name"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20140618231401) do
     t.string   "role"
     t.string   "website"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "quality_of_instructors"
+    t.integer  "length_of_instruction"
+    t.integer  "content_of_instruction"
+    t.integer  "quality_of_instruction"
+    t.integer  "course_work"
+    t.string   "remark"
+    t.integer  "institution_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

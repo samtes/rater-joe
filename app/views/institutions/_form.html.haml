@@ -8,9 +8,21 @@
         - @institution.errors.full_messages.each do |message|
           %li= message
   %fielset
+    %legend
     = f.input :name, placeholder: 'Name', required: false, autofocus: true 
     = f.input :type, placeholder: 'Type of institute'
     = f.input :length, placeholder: 'Legnth in months'
     = f.input :role, placeholder: 'Review as student or instructor'
     = f.input :website, placeholder: 'website'
+    = f.simple_fields_for :review do |m|
+      %fieldset.review
+        %legend 
+          %h2 Reviews and Remark
+        = m.input :quality_of_instructors, placeholder: 'Quality of Instructors 1 - 5'
+        = m.input :length_of_instruction, placeholder: 'Length of Instruction 1 - 5'
+        = m.input :content_of_instruction, placeholder: 'Content of Instruction 1 - 5'
+        = m.input :quality_of_instruction, placeholder: 'Quantity of Instruction 1 - 5'
+        = m.input :course_work, placeholder: 'Course Work 1 - 5'
+        = m.input :remark, placeholder: 'Remark ....'
     = f.button :submit, 'Create Review' 
+

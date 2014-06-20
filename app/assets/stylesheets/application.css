@@ -35,6 +35,9 @@ body footer {
 body nav {
 	text-align: center;
 }
+.review {
+	border: none;
+}
 
 .container table {
 	margin: auto;

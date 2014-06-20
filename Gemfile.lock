@@ -102,6 +102,7 @@ GEM
     mini_portile (0.6.0)
     minitest (5.3.5)
     multi_json (1.10.1)
+    nested_form (0.3.2)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  nested_form
   pg
   rails
   rails_12factor (= 0.0.2)
