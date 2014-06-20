@@ -25,7 +25,7 @@ class InstitutionsController < ApplicationController
   # POST /institutions
   # POST /institutions.json
   def create
-    @institution = Institution.new(institution_params)
+    @institution = current_user.institutions.new(institution_params)
 
     respond_to do |format|
       if @institution.save
@@ -70,6 +70,6 @@ class InstitutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def institution_params
-      params.require(:institution).permit(:name, :type, :length, :role, :website)
+      params.require(:institution).permit(:name, :type, :length, :role, :website, :user_id)
     end
 end

@@ -15,7 +15,7 @@
   %p
     %strong Website:
     = @institution.website
-  - if user_signed_in?  
+  - if user_signed_in? && current_user == @institution.user_id 
     = link_to 'Edit', edit_institution_path(@institution)
     |
   \#{link_to 'Back', institutions_path}

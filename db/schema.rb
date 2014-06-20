@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140618231401) do
     t.integer  "length"
     t.string   "role"
     t.string   "website"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

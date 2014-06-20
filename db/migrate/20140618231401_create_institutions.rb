@@ -6,6 +6,7 @@ class CreateInstitutions < ActiveRecord::Migration
       t.integer :length
       t.string :role
       t.string :website
+      t.integer :user_id
 
       t.timestamps
     end

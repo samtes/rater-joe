@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'html2haml'
 gem "haml-rails"
 gem 'simple_form'
+gem 'decent_exposure'
 
 gem 'jquery-rails'
 gem 'turbolinks'
