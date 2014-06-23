@@ -8,10 +8,7 @@
 
   .field
     = f.input :title, placeholder: "Enter title"
-    = f.input :score, placeholder: "select 1 - 5"
+    = f.input :score, collection: 1..5, prompt: "Select your rating"
     = f.input :remark, placeholder: "Explain if numbers don't do it alone..."
-  / .field
-  /   = f.label :institution_id, 
-  /   = f.number_field :institution_id, placeholder: ""
   .actions
     = f.submit 'Save'

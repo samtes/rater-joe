@@ -1,2 +1,6 @@
 = div_for(review) do
-  =image_tag "star_on.png" 
+  %p
+    %strong
+      Posted #{time_ago_in_words(review.created_at)}
+    = h(review.title)
+    = h(review.remark)

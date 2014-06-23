@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140621212240) do
     t.string   "name"
     t.string   "type"
     t.integer  "length"
+    t.string   "measure"
     t.string   "role"
     t.string   "website"
     t.integer  "user_id"

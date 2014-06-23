@@ -11,8 +11,8 @@
     %legend
     = f.input :name, placeholder: 'Name', required: false, autofocus: true 
     = f.input :type, placeholder: 'Type of institute'
-    = f.input :length, placeholder: 'Legnth in months'
+    = f.input :length, collection: 1..7, prompt: "Select length"
+    = f.input :measure, collection: ['days', 'weeks', 'months', 'years'], prompt: "Select your type"
     = f.input :role, placeholder: 'Review as student or instructor'
     = f.input :website, placeholder: 'website'
     = f.button :submit, 'Create' 
-

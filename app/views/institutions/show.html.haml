@@ -1,18 +1,15 @@
 .container
   %p#notice= notice 
   %p
-    %strong Name:
-    = @institution.name
-  %p
+    %h2= @institution.name
     %strong Type:
     = @institution.type
-  %p
+    %br
     %strong Length:
-    = @institution.length
-  %p
+    = "#{@institution.length} #{@institution.measure}"
+    %br
     %strong Role:
     = @institution.role
-  %p
     %strong Website:
     = link_to @institution.website, @institution.website, target: "_blank"
 
@@ -24,6 +21,8 @@
       %p
         - review.score.to_i.times do
           =image_tag "star-on.png"
+        %br
+        %strong by #{review.user.username} #{time_ago_in_words(review.created_at)} ago
         %br
         %strong=link_to review.title, review_path(review) 
         %br
@@ -38,3 +37,10 @@
       = link_to 'Destroy', @institution, method: :delete, data: { confirm: 'Are you sure?' }
       |
   \#{link_to 'Back', institutions_path}
+
+:javascript
+  $(document).ready( function() {
+    $('body').addClass( 'test' );
+    
+    }
+  });
