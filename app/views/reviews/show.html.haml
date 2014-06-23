@@ -1,0 +1,20 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @review.title
+%p
+  %b Rate:
+  = @review.score
+%p 
+  %b Remark:
+  = @review.remark
+%p
+  %b Institution:
+  = link_to @review.institution.name, institution_path(@review.institution)
+
+= link_to 'Edit', edit_review_path(@review)
+\|
+= link_to 'Destroy', review_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
+\|
+= link_to 'Back', reviews_path

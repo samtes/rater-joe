@@ -1,5 +1,5 @@
 .container
-  %p#notice= notice
+  %p#notice= notice 
   %p
     %strong Name:
     = @institution.name
@@ -14,20 +14,27 @@
     = @institution.role
   %p
     %strong Website:
-    = @institution.website
-  %p
-    = "Quality of Instructors: #{@institution.review.quality_of_instructors}"
-  %p
-    = "Length of Instruction: #{@institution.review.length_of_instruction}"
-  %p
-    = "Content of Instruction: #{@institution.review.content_of_instruction}"
-  %p
-    = "Quantity of Instruction: #{@institution.review.quality_of_instruction}"
-  %p
-    = "Course work: #{@institution.review.course_work}"   
-  %p
-    = "Remark for review: #{@institution.review.remark}"
-  - if user_signed_in? && current_user.id == @institution.user_id
-    = link_to 'Edit', edit_institution_path(@institution)
-    |
+    = link_to @institution.website, @institution.website, target: "_blank"
+
+  - if @institution.reviews.length > 0
+    %p 
+      %strong Rating:
+      #user_star
+    - @institution.reviews.each do |review|
+      %p
+        - review.score.to_i.times do
+          =image_tag "star-on.png"
+        %br
+        %strong=link_to review.title, review_path(review) 
+        %br
+        = review.remark
+
+  - if user_signed_in?
+    %p= link_to 'Create Review', new_review_path
+
+    - if current_user.id == @institution.user_id
+      = link_to 'Edit', edit_institution_path(@institution)
+      |
+      = link_to 'Destroy', @institution, method: :delete, data: { confirm: 'Are you sure?' }
+      |
   \#{link_to 'Back', institutions_path}

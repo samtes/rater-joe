@@ -1,0 +1,21 @@
+%h1 Listing reviews
+
+%table
+  %tr
+    %th Institution
+    %th Title
+    %th
+    %th
+    %th
+
+  - @reviews.each do |review|
+    %tr
+      %td= link_to review.institution.name, institution_path(review.institution)
+      %td= review.title
+      %td= link_to 'Show', review
+      %td= link_to 'Edit', edit_review_path(review)
+      %td= link_to 'Destroy', review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Review', new_review_path

@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :institutions
+  resources :reviews
+
+  resources :institutions do
+    resources :comments
+  end
+
+  # Routes
+  resources :ratings, only: :update
 
   devise_for :users
   # devise_for :models
-  get 'home/index'
+  # get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

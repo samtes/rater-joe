@@ -4,8 +4,7 @@ class Institution < ActiveRecord::Base
 	validates_presence_of :name, :type, :length, :role, :website
 	validates_presence_of :user
 
-	has_one :review, inverse_of: :institution
-	accepts_nested_attributes_for :review
+	has_many :reviews, inverse_of: :institution
 
 	self.inheritance_column = nil
 

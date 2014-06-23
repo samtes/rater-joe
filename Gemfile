@@ -8,6 +8,7 @@ gem 'html2haml'
 gem "haml-rails"
 gem 'simple_form'
 gem 'decent_exposure'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
