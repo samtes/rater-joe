@@ -3,6 +3,6 @@
 
   = render 'form'
 
-  = link_to 'Show', @review
+  = link_to 'Show', institution_review_path(@review.institution_id, @review.id)
   \|
-  = link_to 'Back', reviews_path
+  = link_to 'Back', institution_path(@review.institution_id)

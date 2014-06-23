@@ -1,5 +1,9 @@
 .container
-  %p#notice= notice 
+  %p#notice= notice
+  - if @institution.reviews.length > 0
+    %p
+      - @num.times do
+        =image_tag "star-on-ave.png"
   %p
     %h2= @institution.name
     %strong Type:
@@ -8,8 +12,6 @@
     %strong Length:
     = "#{@institution.length} #{@institution.measure}"
     %br
-    %strong Role:
-    = @institution.role
     %strong Website:
     = link_to @institution.website, @institution.website, target: "_blank"
 
@@ -22,19 +24,19 @@
         - review.score.to_i.times do
           =image_tag "star-on.png"
         %br
-        %strong by #{review.user.username} #{time_ago_in_words(review.created_at)} ago
+        %strong #{review.user.username.capitalize} rated as #{review.role}, #{time_ago_in_words(review.created_at)} ago
         %br
-        %strong=link_to review.title, review_path(review) 
+        %strong=link_to review.title, institution_review_path(review.institution_id, review.id) 
         %br
         = review.remark
 
   - if user_signed_in?
-    %p= link_to 'Create Review', new_review_path
+    %p= link_to 'Create Review', new_institution_review_path(@institution)
 
     - if current_user.id == @institution.user_id
       = link_to 'Edit', edit_institution_path(@institution)
       |
-      = link_to 'Destroy', @institution, method: :delete, data: { confirm: 'Are you sure?' }
+      = link_to 'Delete', @institution, method: :delete, data: { confirm: 'Are you sure?' }
       |
   \#{link_to 'Back', institutions_path}
 

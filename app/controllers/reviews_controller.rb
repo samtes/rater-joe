@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @institution= Institution.find(params[:institution_id])
+    @review = @institution.reviews.new
   end
 
   # GET /reviews/1/edit
@@ -24,7 +25,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @institution = Institution.last
+    @institution = Institution.find(params[:institution_id])
     @review = @institution.reviews.new(review_params)
     @review.user = current_user
     respond_to do |format|
@@ -72,6 +73,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:title, :score, :remark, :institution_id, :user_id)
+      params.require(:review).permit(:title, :score, :role, :remark, :institution_id, :user_id)
     end
 end

@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :title
       t.integer :score
       t.text :remark
+      t.string :role
       t.integer :institution_id
       t.integer :user_id
 

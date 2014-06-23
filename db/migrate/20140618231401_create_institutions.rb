@@ -5,7 +5,6 @@ class CreateInstitutions < ActiveRecord::Migration
       t.string :type
       t.integer :length
       t.string :measure
-      t.string :role
       t.string :website
       t.integer :user_id
 

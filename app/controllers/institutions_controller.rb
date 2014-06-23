@@ -6,6 +6,15 @@ class InstitutionsController < ApplicationController
   # GET /institutions.json
   def index
     @institutions = Institution.all
+
+    @institutions.each do |institution|
+      reviews = institution.reviews
+      @num = 0
+      for review in reviews
+        @num = @num + review.score.to_i
+      end
+      @num = @num.to_f / reviews.length
+    end
   end
   
   # GET /institutions/1
@@ -18,6 +27,20 @@ class InstitutionsController < ApplicationController
     @institution = Institution.new
 
     # @institution.reviews.build
+  end
+
+  def show
+    @institution = Institution.find(params[:id])
+    reviews = @institution.reviews
+    if reviews.length > 0
+      @num = 0
+      for review in reviews
+        @num = @num + review.score.to_i
+      end
+      @num = @num / reviews.length
+    else
+      @num = 0
+    end
   end
 
   # GET /institutions/1/edit
@@ -72,7 +95,7 @@ class InstitutionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def institution_params
-      params.require(:institution).permit(:name, :type, :length, :measure, :role, :website)
+      params.require(:institution).permit(:name, :type, :length, :measure, :website, :user_id)
     end
 end
       

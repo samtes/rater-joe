@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :reviews
 
   resources :institutions do
-    resources :comments
+    resources :reviews
   end
 
   # Routes

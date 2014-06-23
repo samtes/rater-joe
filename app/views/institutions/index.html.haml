@@ -6,7 +6,7 @@
         %th Name
         %th Type
         %th Website
-        %th Rate
+        %th Review
         %th{:colspan => "3"}
     %tbody
       - @institutions.each do |institution|
@@ -15,9 +15,9 @@
           %td= institution.type
           %td= link_to institution.website, institution.website, target: '_blank'
           -if institution.reviews.length > 0
-            %td= link_to 'Available', institution
+            %td= link_to "Available", institution
           -else
-            %td= 'None' 
+            %td= link_to 'None', institution 
   %br/
   - if user_signed_in? 
     = link_to 'New Institution', new_institution_path
