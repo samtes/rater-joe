@@ -4,6 +4,12 @@
     %p
       - @num.times do
         =image_tag "star-on-ave.png"
+      - (5 - @num).times do
+        =image_tag "star-off-ave.png"
+
+  - else 
+    - 5.times do
+      =image_tag "star-off-ave.png"
   %p
     %h2= @institution.name
     %strong Type:

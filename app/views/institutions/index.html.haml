@@ -1,25 +1,42 @@
 .container
   %h1 Listing institutions
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Type
-        %th Website
-        %th Review
-        %th{:colspan => "3"}
-    %tbody
-      - @institutions.each do |institution|
-        %tr
-          %td= link_to institution.name, institution
-          %td= institution.type
-          %td= link_to institution.website, institution.website, target: '_blank'
-          -if institution.reviews.length > 0
-            %td= link_to "Available", institution
-          -else
-            %td= link_to 'None', institution 
-  %br/
   - if user_signed_in? 
-    = link_to 'New Institution', new_institution_path
-
-
+    = link_to 'Create Institution', new_institution_path
+    %p
+  / %table
+  /   %thead
+  /     %tr
+  /       %th Name
+  /       %th Type
+  /       %th Website
+  /       %th Review
+  /       %th{:colspan => "3"}
+  /   %tbody
+  /     - @institutions.each do |institution|
+  /       %tr
+  /         %td= link_to institution.name, institution
+  /         %td= institution.type
+  /         %td= link_to institution.website, institution.website, target: '_blank'
+  /         -if institution.reviews.length > 0
+  /           %td= link_to "Available", institution
+  /         -else
+  /           %td= link_to 'None', institution 
+  / %br/
+  #boxes
+    - @institutions.each do |institution|
+      .box
+        - if institution.reviews.length > 0
+          - num = 0
+          - for review in institution.reviews
+            - num = num + review.score.to_i
+          - num = num / institution.reviews.length
+          - num.times do 
+            = image_tag "star-on.png"
+          - (5 - num).times do 
+            = image_tag "star-off.png" 
+        - else 
+          - 5.times do
+            = image_tag "star-off.png"
+        %h4= link_to institution.name, institution
+        %h4= link_to institution.type, institution
+        = link_to image_tag("link.png"), institution.website, target: '_blank'

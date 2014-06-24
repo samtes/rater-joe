@@ -1,6 +1,17 @@
 .container
   .notice= notice
-  .main_logo= image_tag('rater_img.png')
+  - 5.times do 
+    =image_tag('star-on.png')
+  %br
+  - 5.times do 
+    =image_tag('star-on-ave.png')
+  %br
+  - 5.times do 
+    =image_tag('star-off-ave.png')
+  %br
+  - 5.times do 
+    =image_tag('star-off.png')
+    
   %h1 Rater Joe
   %p.main_text This is an application that will help consumers rate and review a service that they participated on and share it on social service. This will help other users read and ask questions and also comment reviews. This will make services become transparent. 
 

@@ -36,6 +36,42 @@ body footer {
 body nav {
 	text-align: center;
 }
+
+#boxes {
+	text-align: center;
+	width: 100%;
+}
+
+.box {
+	padding-top: 10px;
+	color: white;
+	float: left;
+	width: 15%;
+	height: 130px;
+	border-radius: 10px;
+	background-color: white;
+	padding-bottom: 15px;
+	margin: 10px;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
+box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
+}
+h4 {
+	color: grey;
+}
+h4 a{
+	color: #ff5e00!important;
+}
+
+h3 a{
+	color: #ff5e00!important;
+}
+
+h2 a{
+	color: #ff5e00!important;
+}
+
 .review {
 	border: none;
 }
