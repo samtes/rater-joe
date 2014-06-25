@@ -1,4 +1,4 @@
-= simple_form_for @review, url: institution_reviews_path(@review.institution) do |f|
+= simple_form_for @review, url: institution_reviews_path(@review.institution), :html => {:class => 'pure-form' } do |f|
   - if @review.errors.any?
     #error_explanation
       %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
@@ -7,9 +7,10 @@
           %li= msg
 
   .field
-    = f.input :title, placeholder: "Enter title"
-    = f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as"
-    = f.input :score, collection: 1..5, prompt: "Select your rating"
-    = f.input :remark, placeholder: "Explain if numbers don't do it alone..."
+    = f.input :title, placeholder: "Enter title", label: false
+    = f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as", label: false
+    = f.input :score, collection: 1..5, prompt: "Select your rating", label: false
+    = f.input :remark, placeholder: "Explain if numbers don't do it alone...", label: false
   .actions
-    = f.submit 'Save'
+    %br
+    = f.submit 'Save', class: ["pure-button", "pure-button-primary"]

@@ -1,0 +1,40 @@
+.container
+  %strong Username: #{@user.username}
+  %br
+  %strong Email: #{@user.email if @user.email}
+  %p= link_to 'Edit account', edit_user_registration_path
+  - if @user.institutions.length > 0
+    %table.pure-table.pure-table-bordered
+      %h2 Institutions Created
+      %thead
+        %tr
+          %th Institution
+          %th Type
+          %th Length
+          %th Website
+          %th Average Rate
+      %tbody
+      - @user.institutions.each do |institution|
+        %tr     
+          %td= link_to institution.name, institution
+          %td= institution.type
+          %td= institution.length
+          %td= institution.website
+          %td Test
+    %br        
+  - if @user.reviews.length > 0
+    %table.pure-table.pure-table-bordered
+      %h2 Review History
+      %thead
+        %tr
+          %th Institution
+          %th Reviewed On
+          %th Remark
+          %th Rate
+      %tbody
+      - @user.reviews.each do |review|
+        %tr     
+          %td= link_to review.institution.name, institution_review_path(review.institution_id, review.id)
+          %td= review.title
+          %td=review.remark
+          %td=review.score

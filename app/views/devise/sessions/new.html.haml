@@ -1,8 +1,9 @@
 .container
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = f.input :login, placeholder: 'Email/Username', required: false, autofocus: true, class: "form-control"
-    = f.input :password, placeholder: "password", class: "form-control"
-    = f.input :remember_me, as: :boolean, label: "remember me", inline_label: true if devise_mapping.rememberable?
-    = f.button :submit, "Sign in", class: ["btn", "btn-lg", "btn-primary", "btn-block"]
+  %h2 Sign in
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'pure-form' }) do |f|
+    = f.input :login, placeholder: 'Email/Username', required: false, autofocus: true, label: false
+    = f.input :password, placeholder: "password", label: false
+    = f.input :remember_me, as: :boolean, id: "remember", class: "pure-checkbox", label: "remember", inline_label: true if devise_mapping.rememberable?
+    = f.button :submit, "Sign in", class: ["pure-button", "pure-button-primary"]
 
   = render "devise/shared/links"

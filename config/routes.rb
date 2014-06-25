@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   end
 
   # Routes
-  resources :ratings, only: :update
+  
+  root 'home#index'
 
   devise_for :users
+  resources :users
   # devise_for :models
   # get 'home/index'
 
@@ -15,7 +17,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
 
 
   # Example of regular route:

@@ -1,4 +1,4 @@
-= simple_form_for(@institution) do |f|
+= simple_form_for(@institution, :html => {:class => 'pure-form' }) do |f|
   - if @institution.errors.any?
     #error_explanation
       %h2
@@ -8,10 +8,16 @@
         - @institution.errors.full_messages.each do |message|
           %li= message
   %fielset
-    %legend
-    = f.input :name, placeholder: 'Name', required: false, autofocus: true 
-    = f.input :type, placeholder: 'Type of institute'
-    = f.input :length, collection: 1..7, prompt: "Select length"
-    = f.input :measure, collection: ['days', 'weeks', 'months', 'years'], prompt: "Select your type"
-    = f.input :website, placeholder: 'website'
-    = f.button :submit, 'Create' 
+    .pure-g 
+      = f.input :name, placeholder: 'Name of Institution', autofocus: true, label: false
+    %br
+    .pure-g 
+      = f.input :type, collection: ['bootcamp', 'collage', 'university', 'highscool'], prompt: "Select type",placeholder: 'Type of institute', label: false
+      = f.input :length, collection: 1..7, prompt: "Select length", label: false
+      = f.input :measure, collection: ['days', 'weeks', 'months', 'years'], prompt: "Select your type", label: false
+    %br
+    .pure-g 
+      = f.input :website, placeholder: 'website', label: false
+    %br
+    .pure-g 
+      = f.button :submit, 'Create', class: ["pure-button", "pure-button-primary"] 

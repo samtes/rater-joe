@@ -1,14 +1,12 @@
 .container
   %p.notice= notice
-  %h1 Sing up
-  - if resource.errors
-    .alert Your account could not be created.
-
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    .col-md-4= f.input :email, placeholder: "email", autofocus: true
-    .col-md-4= f.input :username, placeholder: "username"
-    .col-md-4= f.input :password, placeholder: "password"
-    .col-md-4= f.input :password_confirmation, placeholder: "retype password"
-    .col-md-4= f.button :submit, "Sign up", class: ["btn", "btn-primary"]
-
+  %h1 Sign up
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'pure-form' }) do |f|
+    = f.input :email, placeholder: "email", autofocus: true, label: false
+    = f.input :username, placeholder: "username", label: false
+    = f.input :password, placeholder: "password", label: false
+    = f.input :password_confirmation, placeholder: "retype password", label: false
+    %br
+    = f.button :submit, "Sign up", class: ["btn", "btn-primary"]
+    
   = render "devise/shared/links"
