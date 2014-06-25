@@ -1,10 +1,8 @@
 .container
-  %h1 Sing in
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = f.input :login, placeholder: 'Email/Username', required: false, autofocus: true
-    = f.input :password, placeholder: "password"
+    = f.input :login, placeholder: 'Email/Username', required: false, autofocus: true, class: "form-control"
+    = f.input :password, placeholder: "password", class: "form-control"
     = f.input :remember_me, as: :boolean, label: "remember me", inline_label: true if devise_mapping.rememberable?
-    = f.button :submit, "Sign in" 
+    = f.button :submit, "Sign in", class: ["btn", "btn-lg", "btn-primary", "btn-block"]
 
   = render "devise/shared/links"
-

@@ -6,29 +6,42 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %header
-      %nav
-        %ul.devise_navigation
-          - if user_signed_in?
-            %li= link_to  'Home', root_path
-            %li= link_to 'Create Institutions', new_institution_path
-            %li= link_to 'Institutions', institutions_path 
-            %li= link_to "Hi #{current_user.username}"
-            %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
-          - else
-            %li= link_to  'Home', root_path
-            %li= link_to 'Institutions', institutions_path
-            %li= link_to 'Sign in', new_user_session_path
-            %li= link_to 'Sign up', new_user_registration_path
-
+    %header.navbar.navbar-fixed-top
+      %nav.navbar.navbar-inverse{:role => "navigation"}
+        %div.container-fluid
+          / %li= link_to  'Home', root_path
+          %div.navbar-header
+            %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+          %div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li= link_to  'Home', root_path
+              %li.divider
+              - if user_signed_in?
+                %li= link_to 'Create Institutions', new_institution_path
+                %li.divider
+                %li= link_to 'Institutions', institutions_path 
+              - else
+                %li= link_to 'Institutions', institutions_path
+            %ul.nav.navbar-nav.navbar-right
+              - if user_signed_in?
+                %li= link_to "Hi #{current_user.username}"
+                %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
+              - else
+                %li= link_to 'Sign in', new_user_session_path
+                %li= link_to 'Sign up', new_user_registration_path
+    %br
     .clear_top
-    .alert= alert
+    .alert.alert-warning= alert
     / .notice= notice
     = yield
-    .clear_bottom
-    %footer
-      %ul
-        %li= link_to 'Home', root_path
-        %li= link_to 'About us', '#'
-        %li= link_to 'Blog', '#'
-        %li= link_to 'Contact us', '#'
+    / .clear_bottom
+    / %footer
+    /   %ul
+    /     %li= link_to 'Home', root_path
+    /     %li= link_to 'About us', '#'
+    /     %li= link_to 'Blog', '#'
+    /     %li= link_to 'Contact us', '#'

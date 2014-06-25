@@ -27,14 +27,15 @@
       #user_star
     - @institution.reviews.each do |review|
       %p
-        - review.score.to_i.times do
-          =image_tag "star-on.png"
-        %br
-        %strong #{review.user.username.capitalize} rated as #{review.role}, #{time_ago_in_words(review.created_at)} ago
-        %br
-        %strong=link_to review.title, institution_review_path(review.institution_id, review.id) 
-        %br
-        = review.remark
+        .review_box
+          .review_stars
+            - review.score.to_i.times do
+              =image_tag "star-on.png"
+            %br
+          %strong=link_to review.title, institution_review_path(review.institution_id, review.id) 
+          %p
+          %p.remark= "\"#{review.remark}\""
+          %p.name_time #{review.user.username.capitalize} | #{review.role} | #{time_ago_in_words(review.created_at)} ago
 
   - if user_signed_in?
     %p= link_to 'Create Review', new_institution_review_path(@institution)

@@ -3,14 +3,16 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'devise'
-gem 'uglifier', '>= 1.3.0'
 gem 'html2haml'
 gem "haml-rails"
 gem 'simple_form'
 gem 'decent_exposure'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
+gem 'will_paginate', '~> 3.0'
 
+gem 'therubyracer'
 gem 'jquery-rails'
+gem 'less-rails-bootstrap'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'nested_form'
@@ -19,9 +21,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :assets do
   gem 'sass-rails', '~> 4.0.3'
   gem 'coffee-rails', '~> 4.0.0'
-  
+  gem 'uglifier', '>= 1.3.0'
   gem 'compass-rails'
-  gem 'zurb-foundation'
 end
 
 group :production do 

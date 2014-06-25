@@ -7,5 +7,5 @@ class Institution < ActiveRecord::Base
 	has_many :reviews, inverse_of: :institution
 
 	self.inheritance_column = nil
-
+    
 end

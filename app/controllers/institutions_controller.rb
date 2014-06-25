@@ -5,8 +5,8 @@ class InstitutionsController < ApplicationController
   # GET /institutions
   # GET /institutions.json
   def index
-    @institutions = Institution.all
-
+    # @institutions = Institution.all
+    @institutions = Institution.order("created_at DESC")
     @institutions.each do |institution|
       reviews = institution.reviews
       @num = 0

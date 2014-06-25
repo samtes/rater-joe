@@ -12,148 +12,46 @@
  *
  *= require_tree .
  *= require_self
- 
+ *= require bootstrap.min
  */
-@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
-
 body {
-	background-image: url('geometry2.png');
-	background-repeat:repeat;
+	/*background-color: #54D676!important;*/
+	background-color: #D2C64E!important;
+	/*color: white!important;*/
 }
 
-body .container {
+.container {
 	text-align: center;
 }
 
-body .clear {
+.box a{
+	color: #5457E9!important;
+}
+
+.review_box {
 	text-align: center;
-}
-
-body footer {
-	text-align: center;
-}
-
-body nav {
-	text-align: center;
-}
-
-#boxes {
-	text-align: center;
-	width: 100%;
-}
-
-.box {
-	padding-top: 10px;
-	color: white;
-	float: left;
-	width: 15%;
-	height: 130px;
-	border-radius: 10px;
-	background-color: white;
-	padding-bottom: 15px;
-	margin: 10px;
-	overflow: hidden;
-	-webkit-box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
-box-shadow: 0px 1px 14px -5px rgba(0,0,0,0.75);
-}
-h4 {
-	color: grey;
-}
-h4 a{
-	color: #ff5e00!important;
-}
-
-h3 a{
-	color: #ff5e00!important;
-}
-
-h2 a{
-	color: #ff5e00!important;
-}
-
-.review {
-	border: none;
-}
-
-/*.average{
-	width: 50px;
-}*/
-.container table {
+	padding: 10px;
 	margin: auto;
+	width: 30%;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 9px;
+	-webkit-box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
+box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
 }
 
-.container input{
-	width: 25%;
-}
-nav a {
-	width: 100%;
-	margin-right: 20px;
-	color: #ff5e00;
+.review_box a {
+	color: #5457E9;
 }
 
-footer a {
-	width: 100%;
-	margin: auto 70px;
-	color: #ff5e00;
-}
-.container label {
-	display: none;
-}
-h1, h2 {
- 	color: #ff5e00;
+.name_time {
 }
 
-.main_text {
-	color: grey;
-	font-size: 20px;
-	padding: 20px 10%;
-	font-family: 'Maven Pro', sans-serif;
-	margin: auto;
-}
-.logo img{
-	width: 10%;
+.remark{
+	font-style: italic;
+	color: #AB0941; 
 }
 
-.main_logo img {
-	/*position: relative;
-	top: -20px;
-	left: -80px;*/
-	width: 25%;
-	margin-bottom: 0px;
-}
-
-.devise_navigation {
-	text-align: right;
-}
-
-.clear_top {
-	border: 1px solid #ff5e00;
-	overflow: auto;
-	width: 100%
-}
-
-.clear_bottom {
-	margin-top: 30px;
-	border: 1px solid #ff5e00;
-	overflow: auto;
-	width: 100%
-}
-
-li {
-	list-style-type: none;
-	display: inline-block;
-}
-
-.error, .alert {
+.review_stars {
 	text-align: center;
-	margin-top: 30px;
-	color: #ff5e00;
-	border-radius: 5px;
-	padding-right: 5px;
-	padding-left: 5px;
-}
-
-.notice {
-	color: #ff5e00;
 }

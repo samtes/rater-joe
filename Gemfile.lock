@@ -52,6 +52,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commonjs (0.2.7)
     compass (0.12.6)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -67,7 +68,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    email_spec (1.5.0)
+    email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erb2haml (0.1.5)
@@ -94,14 +95,22 @@ GEM
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-rails (3.1.0)
+    jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    less (2.5.1)
+      commonjs (~> 0.2.7)
+    less-rails (2.5.0)
+      actionpack (>= 3.1)
+      less (~> 2.5.0)
+    less-rails-bootstrap (3.1.1.1)
+      less-rails (~> 2.5.0)
     letter_opener (1.2.0)
       launchy (~> 2.2)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -141,6 +150,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    ref (1.0.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -189,6 +199,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -204,10 +217,9 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    zurb-foundation (4.3.2)
-      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -227,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   jquery-raty-rails!
   launchy
+  less-rails-bootstrap
   letter_opener
   nested_form
   pg
@@ -240,6 +253,7 @@ DEPENDENCIES
   simple_form
   spring
   sqlite3
+  therubyracer
   turbolinks
   uglifier (>= 1.3.0)
-  zurb-foundation
+  will_paginate (~> 3.0)
