@@ -1,7 +1,7 @@
 .container
   %h1 Listing institutions
+  %br
   #boxes
-    %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
     - @institutions.each do |institution|
       .box
         - if institution.reviews.length > 0
