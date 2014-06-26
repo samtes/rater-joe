@@ -20,10 +20,22 @@
 @import url('http://fonts.googleapis.com/css?family=Hammersmith+One');
 
 body {
-	/*background-color: #D2C64E!important;*/
 	background-color: #B6D25A!important;
-	/*background-color: #2F2B2F!important;*/
 	padding-bottom: 40px;
+}
+
+.review_show {
+	margin-top: 80px!important;
+	vertical-align: middle;
+	background-color: white;
+	width: 80%;
+	height: 100%;
+	margin: auto;
+	border-radius: 10px;
+	padding: 20px 50px; 
+	-webkit-box-shadow: 1px 4px 38px -15px rgba(196,166,157,1);
+-moz-box-shadow: 1px 4px 38px -15px rgba(196,166,157,1);
+box-shadow: 1px 4px 38px -15px rgba(196,166,157,1);
 }
 h2 {
 	font-family: 'Hammersmith One', sans-serif!important;

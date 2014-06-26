@@ -1,28 +1,31 @@
 .container
-  %p#notice= notice
+  .review_show
+    %p#notice= notice
+    %p
+      %h1= link_to @review.institution.name, institution_path(@review.institution)
+    %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
+    %p
+      %b
+      - @review.score.to_i.times do
+        =image_tag "star-on.png"
+      %h2= @review.title
+    %p 
+      %b Created by:
+      = @review.user.username
+    %p
+      %b Rate as:
+      = @review.role
+    %p 
+      %b Remark
+      .remark= "\" #{@review.remark} \""
+    %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
 
-  %p
-    %b Title:
-    = @review.title
-  %p
-    %b Rate as:
-    = @review.role
-  %p
-    %b
-    - @review.score.to_i.times do
-      =image_tag "star-on.png"
-  %p 
-    %b Remark:
-    = @review.remark
-  %p
-    %b Institution:
-    = link_to @review.institution.name, institution_path(@review.institution)
-  - if current_user.id == @review.user.id  
-    / = link_to 'Edit', edit_institution_review_path(@review.institution_id, @review.id)
-    / \|
-    = link_to 'Delete', institution_review_path(@review.institution_id, @review.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
-    \|
-  = link_to 'Back', institution_path(@review.institution_id)
+    - if current_user.id == @review.user.id  
+      / = link_to 'Edit', edit_institution_review_path(@review.institution_id, @review.id)
+      / \|
+      = link_to 'Delete', institution_review_path(@review.institution_id, @review.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      \|
+    = link_to 'Back', institution_path(@review.institution_id)
 
 
 
