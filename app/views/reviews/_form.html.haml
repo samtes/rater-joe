@@ -6,11 +6,20 @@
         - @review.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.input :title, placeholder: "Enter title", label: false
-    = f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as", label: false
-    = f.input :score, collection: 1..5, prompt: "Select your rating", label: false
-    = f.input :remark, placeholder: "Explain if numbers don't do it alone...", label: false
-  .actions
-    %br
-    = f.submit 'Save', class: ["pure-button", "pure-button-primary"]
+  .fieldset
+    .pure-g
+      = f.input :title, placeholder: "Enter title", label: false, autofocus: true
+      %br
+      %br
+    .pure-g
+      .pure-u-1-2= f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as", label: false
+      = f.input :score, collection: 1..5, prompt: "Select your rating", label: false
+      %br
+      %br
+    .pure-g
+      = f.input :remark, placeholder: "Explain if numbers don't do it alone...", label: false
+      %br
+    .actions
+    .pure-g
+      %br
+      = f.submit 'Save', class: ["pure-button", "pure-button-primary"]

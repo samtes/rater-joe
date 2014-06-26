@@ -1,9 +1,11 @@
 .container
-  %h2 Sign in
+  .alert= alert
+  %h1 Sign in
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => 'pure-form' }) do |f|
     = f.input :login, placeholder: 'Email/Username', required: false, autofocus: true, label: false
     = f.input :password, placeholder: "password", label: false
     = f.input :remember_me, as: :boolean, id: "remember", class: "pure-checkbox", label: "remember", inline_label: true if devise_mapping.rememberable?
     = f.button :submit, "Sign in", class: ["pure-button", "pure-button-primary"]
+  %p
 
   = render "devise/shared/links"

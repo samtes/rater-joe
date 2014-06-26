@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @institution= Institution.find(params[:institution_id])
+    @institution = Institution.find(params[:institution_id])
     @review = @institution.reviews.new
   end
 
@@ -47,7 +47,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @institution_review_url, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to institution_url(params[:institution_id]), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -20,8 +20,8 @@
               %span.icon-bar
           %div#bs-example-navbar-collapse-1.collapse.navbar-collapse
             %ul.nav.navbar-nav
-              %li= link_to  'Home', root_path
-              %li.divider
+              %li.logo
+                = link_to  'Rater Joe', root_path
               - if user_signed_in?
                 %li= link_to 'Create Institutions', new_institution_path
                 %li.divider
@@ -30,12 +30,12 @@
                 %li= link_to 'Institutions', institutions_path
             %ul.nav.navbar-nav.navbar-right
               - if user_signed_in?
-                %li= link_to "Hi #{current_user.username}", user_path(current_user.id)
+                %li= link_to "Hi #{current_user.username.capitalize}", user_path(current_user.id)
                 %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
               - else
                 %li= link_to 'Sign in', new_user_session_path
                 %li= link_to 'Sign up', new_user_registration_path
-    %br
+      %br
     .clear_top
     .alert= alert
     / .notice= notice

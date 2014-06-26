@@ -1,8 +1,13 @@
+%br
 .container
-  %strong Username: #{@user.username}
-  %br
-  %strong Email: #{@user.email if @user.email}
-  %p= link_to 'Edit account', edit_user_registration_path
+  .profile
+    %strong Username: #{@user.username}
+    %br
+    %strong Email: #{@user.email if @user.email}
+    %p
+    - 5.times do
+      =image_tag "star-on.png"
+    %p= link_to 'Edit account', edit_user_registration_path
   - if @user.institutions.length > 0
     %table.pure-table.pure-table-bordered
       %h2 Institutions Created
@@ -20,7 +25,17 @@
           %td= institution.type
           %td= institution.length
           %td= institution.website
-          %td Test
+          - if institution.reviews.length > 0
+            - num = 0
+            - for review in institution.reviews
+              - num = num + review.score.to_i
+            - num = num / institution.reviews.length
+            %td
+              - num.times do
+                =image_tag "star-on.png"
+          - else
+            %td Not Rated
+        %p
     %br        
   - if @user.reviews.length > 0
     %table.pure-table.pure-table-bordered
@@ -37,4 +52,6 @@
           %td= link_to review.institution.name, institution_review_path(review.institution_id, review.id)
           %td= review.title
           %td=review.remark
-          %td=review.score
+          %td
+            - review.score.times do 
+              =image_tag "star-on.png"

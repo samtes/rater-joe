@@ -1,6 +1,7 @@
 .container_new
+  %br
   %h1 New review
 
   = render 'form'
-
+  %br
   = link_to 'Back', institution_path(@review.institution_id)
