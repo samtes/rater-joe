@@ -1,7 +1,9 @@
 .container_new
   %h1 Editing review
 
-  = render 'form'
+  = simple_form_for @review, url: institution_review_path(@review.institution_id, @review.id), :html => {:class => 'pure-form' } do |f|
+
+    = render partial: 'form', locals: {f: f}
 
   = link_to 'Show', institution_review_path(@review.institution_id, @review.id)
   \|

@@ -1,25 +1,24 @@
-= simple_form_for @review, url: institution_reviews_path(@review.institution), :html => {:class => 'pure-form' } do |f|
-  - if @review.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
-      %ul
-        - @review.errors.full_messages.each do |msg|
-          %li= msg
+- if @review.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
+    %ul
+      - @review.errors.full_messages.each do |msg|
+        %li= msg
 
-  .fieldset
-    .pure-g
-      = f.input :title, placeholder: "Enter title", label: false, autofocus: true
-      %br
-      %br
-    .pure-g
-      .pure-u-1-2= f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as", label: false
-      = f.input :score, collection: 1..5, prompt: "Select your rating", label: false
-      %br
-      %br
-    .pure-g
-      = f.input :remark, placeholder: "Explain if numbers don't do it alone...", label: false
-      %br
-    .actions
-    .pure-g
-      %br
-      = f.submit 'Save', class: ["pure-button", "pure-button-primary"]
+.fieldset
+  .pure-g
+    = f.input :title, placeholder: "Enter title", label: false, autofocus: true
+    %br
+    %br
+  .pure-g
+    .pure-u-1-2= f.input :role, collection: ['student', 'instructor', 'employee'], prompt: "Review as", label: false
+    = f.input :score, collection: 1..5, prompt: "Select your rating", label: false
+    %br
+    %br
+  .pure-g
+    = f.input :remark, placeholder: "Explain if numbers don't do it alone...", label: false
+    %br
+  .actions
+  .pure-g
+    %br
+    = f.submit 'Save', class: ["pure-button", "pure-button-primary"]

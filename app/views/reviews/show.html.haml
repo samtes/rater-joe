@@ -21,8 +21,8 @@
     %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
 
     - if current_user.id == @review.user.id  
-      / = link_to 'Edit', edit_institution_review_path(@review.institution_id, @review.id)
-      / \|
+      = link_to 'Edit', edit_institution_review_path(@review.institution_id, @review.id)
+      \|
       = link_to 'Delete', institution_review_path(@review.institution_id, @review.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
       \|
     = link_to 'Back', institution_path(@review.institution_id)
