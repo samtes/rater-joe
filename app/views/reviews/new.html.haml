@@ -1,8 +1,8 @@
 .container_new
   %br
   %h1 New review
-	= simple_form_for @review, url: institution_reviews_path(@review.institution), :html => {:class => 'pure-form' } do |f|
+  = simple_form_for @review, url: institution_reviews_path(@review.institution), :html => {:class => 'pure-form' } do |f|
 
-  		= render partial: 'form', locals: {f: f}
+    = render partial: 'form', locals: {f: f}
   %br
   = link_to 'Back', institution_path(@review.institution_id)
