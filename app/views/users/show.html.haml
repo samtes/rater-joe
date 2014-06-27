@@ -52,7 +52,8 @@
         %tr     
           %td= link_to review.institution.name, institution_review_path(review.institution_id, review.id)
           %td= review.title
-          %td=review.remark
+          %td
+            .test=review.remark
           %td
             - review.score.times do 
               =image_tag "star-on.png"

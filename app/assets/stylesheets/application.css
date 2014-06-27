@@ -28,6 +28,10 @@ body {
 	padding-bottom: 40px;
 }
 
+.test {
+	width: 300px;
+}
+
 .review_show {
 	margin-top: 80px!important;
 	vertical-align: middle;
