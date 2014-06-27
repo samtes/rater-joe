@@ -36,6 +36,8 @@
           %p
           %p.remark= "\"#{review.remark}\""
           %p.name_time #{review.user.username.capitalize} | #{review.role} | #{time_ago_in_words(review.created_at)} ago
+          / Go to www.addthis.com/dashboard to customize your tools
+          .addthis_sharing_toolbox
 
   - if user_signed_in?
     %p= link_to 'Create Review', new_institution_review_path(@institution)
@@ -46,6 +48,5 @@
       = link_to 'Delete', @institution, method: :delete, data: { confirm: 'Are you sure?' }
       |
   \#{link_to 'Back', institutions_path}
-
 / Go to www.addthis.com/dashboard to customize your tools
-%script{src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53a8ce42159f684b", type: "text/javascript"}
+%script{:src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53a8ce42159f684b", :type => "text/javascript"}

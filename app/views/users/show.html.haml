@@ -8,6 +8,7 @@
     - 5.times do
       =image_tag "star-on.png"
     %p= link_to 'Edit account', edit_user_registration_path
+  %br
   - if @user.institutions.length > 0
     %table.pure-table.pure-table-bordered
       %h2 Institutions Created
@@ -23,7 +24,7 @@
         %tr     
           %td= link_to institution.name, institution
           %td= institution.type
-          %td= institution.length
+          %td= "#{institution.length} #{institution.measure}"
           %td= institution.website
           - if institution.reviews.length > 0
             - num = 0

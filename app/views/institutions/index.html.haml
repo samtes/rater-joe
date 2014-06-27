@@ -2,25 +2,29 @@
   %h1 Listing institutions
   %br
   #boxes
-    - @institutions.each do |institution|
-      .box
-        - if institution.reviews.length > 0
-          - num = 0
-          - for review in institution.reviews
-            - num = num + review.score.to_i
-          - num = num / institution.reviews.length
-          - num.times do 
-            = image_tag "star-on.png"
-          - (5 - num).times do 
-            = image_tag "star-off.png" 
-        - else 
-          - 5.times do
-            = image_tag "star-off.png"
-        %p
-        = link_to institution.name, institution
-        |
-        = link_to institution.type, institution
-        = link_to image_tag("link.png"), institution.website, target: '_blank'
-        %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
-  / - if user_signed_in? 
-  / = link_to 'Create Institution', new_institution_path
+    - if @institutions.length > 0
+      - @institutions.each do |institution|
+        .box
+          - if institution.reviews.length > 0
+            - num = 0
+            - for review in institution.reviews
+              - num = num + review.score.to_i
+            - num = num / institution.reviews.length
+            - num.times do 
+              = image_tag "star-on.png"
+            - (5 - num).times do 
+              = image_tag "star-off.png" 
+          - else 
+            - 5.times do
+              = image_tag "star-off.png"
+          %p
+          = link_to institution.name, institution
+          |
+          = link_to institution.type, institution
+          = link_to image_tag("link.png"), institution.website, target: '_blank'
+          %hr{:style => "border: none; height: 1px; color: blue; background: grey;"}
+    - else 
+      - if user_signed_in? 
+        = link_to 'Create Institution', new_institution_path
+      - else 
+        There are no institutions

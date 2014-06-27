@@ -20,7 +20,8 @@
 @import url('http://fonts.googleapis.com/css?family=Hammersmith+One');
 
 body {
-	background-color: #B6D25A!important;
+	/*background-color: #B6D25A!important;*/
+	background-image: url('http://greenbuilthometour.org/wp-content/uploads/2013/06/green-nature-wallpapers-16.jpg')!important;
 	padding-bottom: 40px;
 }
 
@@ -45,7 +46,7 @@ h1 {
 }
 
 .home {
-	margin-top: 80px!important;
+	margin-top: 120px!important;
 	vertical-align: middle;
 	background-color: #282222;
 	width: 80%;
@@ -177,16 +178,21 @@ box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
 }
 
 .review_box {
-	text-align: center;
+	/*text-align: center;*/
 	padding: 10px;
 	margin: auto;
-	width: 30%;
+	width: 40%;
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 9px;
 	-webkit-box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
 box-shadow: 1px 4px 21px -2px rgba(0,0,0,0.75);
 }
+
+.addthis_native_toolbox {
+	margin-left: 10%;
+}
+
 .sign_form {
 	margin: auto;
 }

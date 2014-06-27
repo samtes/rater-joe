@@ -4,6 +4,8 @@
     %title RaterJoe
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     %link{:href => "http://yui.yahooapis.com/pure/0.5.0/pure-min.css", :rel => "stylesheet"}
+    %meta{:content => "star-on.ave.png", :property => "og:image"}
+    %meta{:content => "Rater Joe", :property => "og:title"}
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -30,7 +32,7 @@
                 %li= link_to 'Institutions', institutions_path
             %ul.nav.navbar-nav.navbar-right
               - if user_signed_in?
-                %li= link_to "Hi #{current_user.username.capitalize}", user_path(current_user.id)
+                %li= link_to "#{current_user.username.capitalize}'s profile", user_path(current_user.id)
                 %li= link_to 'Sign out', destroy_user_session_path, method: 'delete'
               - else
                 %li= link_to 'Sign in', new_user_session_path
@@ -40,10 +42,3 @@
     .alert= alert
     / .notice= notice
     = yield
-    / .clear_bottom
-    / %footer
-    /   %ul
-    /     %li= link_to 'Home', root_path
-    /     %li= link_to 'About us', '#'
-    /     %li= link_to 'Blog', '#'
-    /     %li= link_to 'Contact us', '#'
