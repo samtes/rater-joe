@@ -22,6 +22,9 @@
 body {
 	/*background-color: #B6D25A!important;*/
 	background-image: url('http://greenbuilthometour.org/wp-content/uploads/2013/06/green-nature-wallpapers-16.jpg')!important;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center; 
 	padding-bottom: 40px;
 }
 
