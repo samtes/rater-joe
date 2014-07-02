@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'decent_exposure'
 gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 gem 'will_paginate', '~> 3.0'
+gem 'cancan'
 
 gem 'therubyracer'
 gem 'jquery-rails'

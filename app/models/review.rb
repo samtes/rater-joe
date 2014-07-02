@@ -5,5 +5,8 @@ class Review < ActiveRecord::Base
 
 
 	validates_presence_of :institution
+	validates_presence_of :title
+	validates_presence_of :score
+	validates_presence_of :role
     
 end

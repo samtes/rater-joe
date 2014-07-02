@@ -2,14 +2,9 @@
   %p#notice= notice
   - if @institution.reviews.length > 0
     %p
-      - @num.times do
-        =image_tag "star-on-ave.png"
-      - (5 - @num).times do
-        =image_tag "star-off-ave.png"
-
+      = image_tag "#{@num}-star-ave.png"
   - else 
-    - 5.times do
-      =image_tag "star-off-ave.png"
+    = image_tag "0-star-ave.png"
   %p
     %h2= @institution.name
     %strong Type:

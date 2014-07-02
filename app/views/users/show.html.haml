@@ -1,59 +1,62 @@
 %br
 .container
-  .profile
-    %strong Username: #{@user.username}
-    %br
-    %strong Email: #{@user.email if @user.email}
-    %p
-    - 5.times do
-      =image_tag "star-on.png"
-    %p= link_to 'Edit account', edit_user_registration_path
-  %br
-  - if @user.institutions.length > 0
-    %table.pure-table.pure-table-bordered
-      %h2 Institutions Created
-      %thead
-        %tr
-          %th Institution
-          %th Type
-          %th Length
-          %th Website
-          %th Average Rate
-      %tbody
-      - @user.institutions.each do |institution|
-        %tr     
-          %td= link_to institution.name, institution
-          %td= institution.type
-          %td= "#{institution.length} #{institution.measure}"
-          %td= institution.website
-          - if institution.reviews.length > 0
-            - num = 0
-            - for review in institution.reviews
-              - num = num + review.score.to_i
-            - num = num / institution.reviews.length
+  - if current_user == @user
+    .profile
+      %strong Username: #{@user.username}
+      %br
+      %strong Email: #{@user.email if @user.email}
+      %p
+      - 5.times do
+        =image_tag "star-on.png"
+      %p= link_to 'Edit account', edit_user_registration_path
+    %b
+    - if @user.institutions.length > 0
+      %table.pure-table.pure-table-bordered
+        %h2 Institutions Created
+        %thead
+          %tr
+            %th Institution
+            %th Type
+            %th Length
+            %th Website
+            %th Average Rate
+        %tbody
+        - @user.institutions.each do |institution|
+          %tr     
+            %td= link_to institution.name, institution
+            %td= institution.type
+            %td= "#{institution.length} #{institution.measure}"
+            %td= institution.website
+            - if institution.reviews.length > 0
+              - num = 0
+              - for review in institution.reviews
+                - num = num + review.score.to_i
+              - num = num / institution.reviews.length
+              %td
+                - num.times do
+                  =image_tag "star-on.png"
+            - else
+              %td Not Rated
+          %p
+      %br        
+    - if @user.reviews.length > 0
+      %table.pure-table.pure-table-bordered
+        %h2 Review History
+        %thead
+          %tr
+            %th Institution
+            %th Reviewed On
+            %th Remark
+            %th Rate
+        %tbody
+        - @user.reviews.each do |review|
+          %tr     
+            %td= link_to review.institution.name, institution_review_path(review.institution_id, review.id)
+            %td= review.title
             %td
-              - num.times do
+              .test=review.remark
+            %td
+              - review.score.times do 
                 =image_tag "star-on.png"
-          - else
-            %td Not Rated
-        %p
-    %br        
-  - if @user.reviews.length > 0
-    %table.pure-table.pure-table-bordered
-      %h2 Review History
-      %thead
-        %tr
-          %th Institution
-          %th Reviewed On
-          %th Remark
-          %th Rate
-      %tbody
-      - @user.reviews.each do |review|
-        %tr     
-          %td= link_to review.institution.name, institution_review_path(review.institution_id, review.id)
-          %td= review.title
-          %td
-            .test=review.remark
-          %td
-            - review.score.times do 
-              =image_tag "star-on.png"
+  - else
+    %h2= 'You are not authorized to view this page!'
